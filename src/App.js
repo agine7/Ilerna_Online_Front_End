@@ -26,8 +26,8 @@ const App = () => {
     //const UserFotos = GetFotosFromAlbums(UserAlbums);
 
     console.log(UserInfo)
-    const User = {Information: UserInfo, 
-      albums: UserAlbums, 
+    const User = {Information: UserInfo,
+      albums: UserAlbums,
       tareas: UserTareas,
       posts: UserPosts,
       comments: UserComments,

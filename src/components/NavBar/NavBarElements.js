@@ -37,6 +37,8 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   margin-right: 24px;
+  border-radius: 10px;
+  border: none;
 `;
   
 export const NavBtnLink = styled(Link)`
@@ -49,8 +51,10 @@ export const NavBtnLink = styled(Link)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  /* Second Nav */
-  margin-left: 24px;
+  &:active{
+    box-shadow: 0 1px #fff;
+    transform: translateY(2px);
+  }
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;

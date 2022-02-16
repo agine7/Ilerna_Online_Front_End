@@ -1,16 +1,21 @@
 import { Card } from "@mui/material";
 import React from "react"
+import { useState } from "react";
 
 import {
     SafeAreaView,
     Text,
     Button,
+    View,
+    FlatList,
   } from "react-native"
 
   const WIDTH_CARDS = "45vw";
 
 export default function UserInformation(props) {
   console.log(props)
+  const [userInformation, setUserInformation] = useState ({})
+  //setUserInformation (props.items.Information)
   return(
     <SafeAreaView style={{ flex: 1, justifyContent: "space-around", display: "inline-block", backgroundColor: "white", width: "100vw", height: "40vh"}}>
       <Card
@@ -33,9 +38,12 @@ export default function UserInformation(props) {
       >
         User Information: <br></br>
       </Text>
-      <Text>
-        {JSON.stringify(props.items.Information)}
-      </Text>
+      <View >
+      <FlatList
+        data={userInformation}
+        renderItem={({item}) => <Text>{item.UserInformation}</Text>}
+      />
+      </View>
       </Card>
       <Card 
         style={{
@@ -62,8 +70,9 @@ export default function UserInformation(props) {
         return(
           <Button
             title={album.title}
-            color="#ffffff"
+            color="#000000"
             style={{
+              borderColor: "black",
               color: "black",
               margin: 50,
               height: 25,
@@ -92,7 +101,7 @@ export default function UserInformation(props) {
           width: 140,
         }}
       >
-        Tareas:
+        Tareas: <br />
       </Text>
       <Text
       >
@@ -117,7 +126,7 @@ export default function UserInformation(props) {
           width: 140,
         }}
       >
-        Posts:
+        Posts: <br /> 
       </Text>
       <Text
       >
