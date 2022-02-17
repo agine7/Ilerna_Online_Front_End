@@ -10,12 +10,12 @@ import {
     FlatList,
   } from "react-native"
 
-  const WIDTH_CARDS = "45vw";
+const WIDTH_CARDS = "45vw";
 
 export default function UserInformation(props) {
   console.log(props)
   const [userInformation, setUserInformation] = useState ({})
-  //setUserInformation (props.items.Information)
+  //setUserInformation(props.items.userInformation)
   return(
     <SafeAreaView style={{ flex: 1, justifyContent: "space-around", display: "inline-block", backgroundColor: "white", width: "100vw", height: "40vh"}}>
       <Card
@@ -39,49 +39,8 @@ export default function UserInformation(props) {
         User Information: <br></br>
       </Text>
       <View >
-      <FlatList
-        data={userInformation}
-        renderItem={({item}) => <Text>{item.UserInformation}</Text>}
-      />
+      {JSON.stringify(props.items.Information)}
       </View>
-      </Card>
-      <Card 
-        style={{
-          color: "black",
-          width: WIDTH_CARDS,
-          height:300,
-          borderWidth: 2,
-          margin: "2vw",
-          display: "inline-block",
-          }}
-      >
-        <Text
-        style={{
-          color: "black",
-          fontWeight: 'bold',
-          marginTop: 10,
-          marginLeft: 5,
-          width: 140,
-        }}
-      >
-        Albums: <br />
-      </Text>
-      {props.items.albums?.map(album => {
-        return(
-          <Button
-            title={album.title}
-            color="#000000"
-            style={{
-              borderColor: "black",
-              color: "black",
-              margin: 50,
-              height: 25,
-              
-            }}
-          />
-        )
-      })}
-      
       </Card>
       <Card 
         style={{
@@ -108,14 +67,15 @@ export default function UserInformation(props) {
         {JSON.stringify(props.items.tareas)}
       </Text>
       </Card>
-      <Card 
+      <Card
         style={{
           color: "black",
-          margin: "2vw",
           width: WIDTH_CARDS,
           height:300,
+          borderWidth: 2,
+          margin: "2vw",
           display: "inline-block",
-          }} 
+          }}
       >
         <Text
         style={{
@@ -126,37 +86,9 @@ export default function UserInformation(props) {
           width: 140,
         }}
       >
-        Posts: <br /> 
+        Albums: <br />
       </Text>
-      <Text
-      >
-        {JSON.stringify(props.items.posts)}
-      </Text>
-      </Card>
-      <Card 
-        style={{
-          color: "black",
-          width: WIDTH_CARDS,
-          height:300,
-          margin: "2vw",
-          display: "inline-block",
-          }} 
-      >
-        <Text
-        style={{
-          color: "black",
-          fontWeight: 'bold',
-          marginTop: 10,
-          marginLeft: 5,
-          width: 140,
-        }}
-      >
-        Comments:
-      </Text>
-      <Text
-      >
-        {JSON.stringify(props.items.comments)}
-      </Text>
+      {JSON.stringify(props.items.albums)}
       </Card>
       <Card 
         style={{
@@ -182,6 +114,53 @@ export default function UserInformation(props) {
       >
         {JSON.stringify(props.items.fotos)}
       </Text>
+      </Card>
+      <Card 
+        style={{
+          color: "black",
+          margin: "2vw",
+          width: WIDTH_CARDS,
+          height:300,
+          display: "inline-block",
+          }} 
+      >
+        <Text
+        style={{
+          color: "black",
+          fontWeight: 'bold',
+          marginTop: 10,
+          marginLeft: 5,
+          width: 140,
+        }}
+      >
+        Posts: <br />
+      </Text>
+      <Text
+      >
+        {JSON.stringify(props.items.posts)}
+      </Text>
+      </Card>
+      <Card 
+        style={{
+          color: "black",
+          width: WIDTH_CARDS,
+          height:300,
+          margin: "2vw",
+          display: "inline-block",
+          }} 
+      >
+        <Text
+        style={{
+          color: "black",
+          fontWeight: 'bold',
+          marginTop: 10,
+          marginLeft: 5,
+          width: 140,
+        }}
+      >
+        Comments: <br />
+      </Text>
+        {JSON.stringify(props.items.comments)}
       </Card>
     </SafeAreaView>
   );
