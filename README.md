@@ -2,5 +2,4 @@
 
 Level Test for Ilerna Online - Basic Social Network
 
-npm init
-npm start
+npm init --> npm start
